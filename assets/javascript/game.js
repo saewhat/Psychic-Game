@@ -19,4 +19,35 @@ function updateGuesses() {
 }
 
 
+//resets the game
+var reset = function() {
+    guessesLeft = 9;
+    guesses = [];
+    var compGuess = compChoices[Math.floor(Math.random() * compChoices.length)];
+}
+
+//user's interactions with the website
+document.onkeyup = function(event) {
+    guessesLeft--;
+    var userGuess = event.key;
+
+    guesses.push(userGuess);
+    updateGuessesLeft();
+    updateGuesses();
+
+        if (guesses === compGuess) {
+            wins++;
+            document.querySelector('#wins').innerHTML = "Wins: " + wins;
+            reset();
+        } else {
+            losses++;
+            document.querySelector('#loss').innerHTML = "Losses: " + losses;
+        }
+
+        if (guessesLeft === 0) {
+            alert("GOOD GAME!")
+            reset();
+        }
+
+}
 
