@@ -5,25 +5,26 @@ var guessesLeft = 9;
 var guesses = [];
 
 var compChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// this chooses a random letter within the array above as the computer's choice.
+// this chooses a random letter within the array above as the computer's choice
 var compGuess = compChoices[Math.floor(Math.random() * compChoices.length)];
 
-//this updates the 'Guesses Left' counter.
+// this updates the 'Guesses Left' counter
 function updateGuessesLeft() {
     document.querySelector('#guessesLeft').innerHTML = "Guesses Left: " + guessesLeft;
 }
 
-//this updates 'Your Guesses' list.
+// this updates the 'Your Guesses so far' list
 function updateGuesses() {
     document.querySelector('#guesses').innerHTML = "Your Guesses so far: " + guesses.join(', ');
 }
 
-var resetCompChoice = function() {
+// resets the computer's choice
+function resetCompChoice() {
     compGuess = compChoices[Math.floor(Math.random() * compChoices.length)];
 }
 
-//resets the game
-var reset = function() {
+// resets the game
+function reset() {
     guessesLeft = 9;
     guesses = [];
 
@@ -32,7 +33,7 @@ var reset = function() {
     resetCompChoice();
 }
 
-//user's interactions with the website
+// user's interactions with the website
 document.onkeyup = function(event) {
     guessesLeft--;
     var userGuess = event.key;
@@ -57,4 +58,3 @@ document.onkeyup = function(event) {
         }
 
 }
-
