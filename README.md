@@ -1,6 +1,4 @@
 # Option One: Psychic Game (Basic)
-
-## Overview
 Try and guess the correct letter!
 
 * To play, press any key on the keyboard.
