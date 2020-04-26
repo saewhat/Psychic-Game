@@ -41,20 +41,20 @@ document.onkeyup = function(event) {
     updateGuessesLeft();
     updateGuesses();
 
-    if (guesses === compGuess) {
-        alert("Good job!");
-        wins++;
-        document.querySelector('#wins').innerHTML = "Wins: " + wins;
-        reset();
-    } else {
-        losses++;
-        document.querySelector('#loss').innerHTML = "Losses: " + losses;
-    }
+        if (userGuess === compGuess) {
+            wins++;
+            document.querySelector('#wins').innerHTML = "Wins: " + wins;
+            alert("Good job! +1");
+            reset();
+        } else {
+            losses++;
+            document.querySelector('#loss').innerHTML = "Losses: " + losses;
+        }
 
-    if (guessesLeft == 0) {
-        alert("GAME OVER!")
-        reset();
-    }
+        if (guessesLeft === 0) {
+            alert("GAME OVER!")
+            reset();
+        }
 
 }
 
