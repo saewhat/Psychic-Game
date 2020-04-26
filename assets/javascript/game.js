@@ -18,12 +18,18 @@ function updateGuesses() {
     document.querySelector('#guesses').innerHTML = "Your Guesses so far: " + guesses.join(', ');
 }
 
+var resetCompChoice = function() {
+    compGuess = compChoices[Math.floor(Math.random() * compChoices.length)];
+}
 
 //resets the game
 var reset = function() {
     guessesLeft = 9;
     guesses = [];
-    var compGuess = compChoices[Math.floor(Math.random() * compChoices.length)];
+
+    updateGuesses();
+    updateGuessesLeft();
+    resetCompChoice();
 }
 
 //user's interactions with the website
@@ -35,20 +41,20 @@ document.onkeyup = function(event) {
     updateGuessesLeft();
     updateGuesses();
 
-        if (guesses == compGuess) {
-            alert("Good job!");
-            wins++;
-            document.querySelector('#wins').innerHTML = "Wins: " + wins;
-            reset();
-        } else {
-            losses++;
-            document.querySelector('#loss').innerHTML = "Losses: " + losses;
-        }
+    if (guesses === compGuess) {
+        alert("Good job!");
+        wins++;
+        document.querySelector('#wins').innerHTML = "Wins: " + wins;
+        reset();
+    } else {
+        losses++;
+        document.querySelector('#loss').innerHTML = "Losses: " + losses;
+    }
 
-        if (guessesLeft === 0) {
-            alert("GAME OVER!")
-            reset();
-        }
+    if (guessesLeft == 0) {
+        alert("GAME OVER!")
+        reset();
+    }
 
 }
 
