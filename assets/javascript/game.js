@@ -35,7 +35,8 @@ document.onkeyup = function(event) {
     updateGuessesLeft();
     updateGuesses();
 
-        if (guesses === compGuess) {
+        if (guesses == compGuess) {
+            alert("Good job!");
             wins++;
             document.querySelector('#wins').innerHTML = "Wins: " + wins;
             reset();
@@ -45,7 +46,7 @@ document.onkeyup = function(event) {
         }
 
         if (guessesLeft === 0) {
-            alert("GOOD GAME!")
+            alert("GAME OVER!")
             reset();
         }
 
